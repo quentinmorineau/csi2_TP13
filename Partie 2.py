@@ -7,8 +7,9 @@ class BinaryTree :
     def getRoot(self):
         return self.__root
 
-r = BinaryTree(12)
-n_root = Node(r.getRoot(),17,5)
+
+n_root = Node(12,17,5)
+r = BinaryTree(n_root)
 n1_left = Node(n_root.getLeft(),4,6)
 n2_left_left = Node(n1_left.getLeft(),None,3)
 n2_right = Node(n_root.getRight(),19,None)
