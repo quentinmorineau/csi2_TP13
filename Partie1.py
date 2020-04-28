@@ -19,5 +19,9 @@ class Node:
     def setLeft(self,l):
         self.__l = l
 
+    def __str__(self):
+        return "La valeur du noeud est : "+str(self.__v)
+
 n1 = Node(12,17,5)
 n2 = Node(4,6,8)
+#print(n2)
