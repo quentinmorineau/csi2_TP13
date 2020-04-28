@@ -25,20 +25,30 @@ class BinaryTree :
         else:
             return self.printValues(node.getLeft()) + self.printValues(node.getRight()) + " " + str(node.getVal())
 
+    def sumValues(self,node):
+        if node is None:
+            return 0
+        else :
+            return self.sumValues(node.getLeft()) + self.sumValues(node.getRight()) + node.getVal()
 
+    def numberLeaves(self,node):
+        if node is None :
+            return 0
+        else :
+            return self.numberLeaves()
 
+n3 = Node(3,None,None)
+n4 = Node(4,None,n3)
+n6 = Node(6,None,None)
+n5 = Node(5,n6,n4)
+n18 = Node(18,None,None)
+n21 = Node(21,None,None)
+n19 = Node(19,n21,n18)
+n17 = Node(17,n19,None)
+n1 = Node(12,n17,n5)
+Racine = BinaryTree(n1)
 
-n12 = Node(12,17,5)
-r = BinaryTree(n12)
-n5 = Node(n12.getLeft(),6,4)
-n4 = Node(n5.getLeft(),None,3)
-n3 = Node(n4.getLeft(),None,None)
-n6 = Node(n5.getRight(),None,None)
-n17 = Node(n12.getRight(),19,None)
-n19 = Node(n17.getRight(),21,18)
-n18 = Node(n19.getLeft(),None,None)
-n21 = Node(n19.getRight(),None,None)
-
-#print(r.isRoot(n5))
-#r.size(n12)
-r.printValues(n12)
+print(Racine.isRoot(n1))
+print(Racine.size(n1))
+print(Racine.printValues(n1))
+print(Racine.sumValues(n1))
