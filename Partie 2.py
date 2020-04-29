@@ -59,6 +59,10 @@ class BinaryTree :
         else:
             return self.belongs(node.getLeft(), val) or self.belongs(node.getRight(), val)
 
+    def ancestors(self,node,val):
+        if node is None :
+            return False
+        if
 
 
 n3 = Node(3,None,None)
