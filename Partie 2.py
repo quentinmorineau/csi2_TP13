@@ -34,8 +34,24 @@ class BinaryTree :
     def numberLeaves(self,node):
         if node is None :
             return 0
+        if node.getRight()==None and node.getLeft()==None :
+            return 1
         else :
-            return self.numberLeaves()
+            return self.numberLeaves(node.getLeft()) + self.numberLeaves(node.getRight())
+
+    def numberInternalNodes(self,node):
+        return self.size(node)-self.numberLeaves(node)
+
+
+    def height(self, node):
+        if node is None:
+            return -1
+        else :
+            leftheight = self.height(node.getLeft())
+            rightheight = self.height(node.getRight())
+            return max(leftheight, rightheight) + 1
+
+    def belongs(self,node,val):
 
 n3 = Node(3,None,None)
 n4 = Node(4,None,n3)
@@ -46,9 +62,13 @@ n21 = Node(21,None,None)
 n19 = Node(19,n21,n18)
 n17 = Node(17,n19,None)
 n1 = Node(12,n17,n5)
-Racine = BinaryTree(n1)
+r = BinaryTree(n1)
 
-print(Racine.isRoot(n1))
-print(Racine.size(n1))
-print(Racine.printValues(n1))
-print(Racine.sumValues(n1))
+print(r.isRoot(n1))
+print(r.size(n1))
+print(r.printValues(n1))
+print(r.sumValues(n1))
+print(r.numberLeaves(n1))
+print(r.numberInternalNodes(n1))
+print(r.height(n1))
+print(r.belongs(n1,4))
