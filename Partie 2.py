@@ -52,12 +52,12 @@ class BinaryTree :
             return max(leftheight, rightheight) + 1
 
     def belongs(self,node,val):
-        if node is None :
+        if node is None:
             return False
-        if node.getLeft()==val or node.getLeft()==val:
+        if node.getVal() == val:
             return True
-        else :
-            return self.belongs(node.getLeft(),val) + self.belongs(node.getRight(),val)
+        else:
+            return self.belongs(node.getLeft(), val) or self.belongs(node.getRight(), val)
 
 
 
